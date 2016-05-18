@@ -62,6 +62,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'guard-rails', require: false
+  gem 'erb2haml', :group => :development
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
