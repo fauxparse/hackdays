@@ -32,9 +32,12 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'figaro'
 
+gem 'omniauth-google-oauth2'
+
 gem 'haml-rails'
-gem 'bourbon'
+gem 'bourbon', '>= 5.0.0.beta.5'
 gem 'neat'
+gem 'normalize-scss'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,6 +61,7 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-cucumber'
+  gem 'guard-rails', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
