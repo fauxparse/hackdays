@@ -30,3 +30,11 @@ body {
     }
   }
 }
+
+h3 {
+  color: $mid-grey;
+  font-weight: normal;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: $small-spacing;
+}

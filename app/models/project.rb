@@ -19,4 +19,12 @@ class Project < ApplicationRecord
   def contributors
     goals.flat_map(&:users).uniq
   end
+
+  def most_recent_hackday
+    goals.sort_by(&:hackday).last.try(:hackday)
+  end
+
+  def self.with_full_information
+    includes(:goals => [:hackday, { :commitments => :user }])
+  end
 end

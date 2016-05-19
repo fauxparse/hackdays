@@ -1,0 +1,6 @@
+- if hackday.projects.any?
+  %section.project-list
+    .inner
+      %h3= link_to dates(hackday), hackday
+      = render hackday.projects
+

@@ -2,11 +2,11 @@ class ProjectsController < ApplicationController
   helper_method :hackday
 
   def index
-    @projects = project_scope.all
+    @hackdays = Hackday.most_recent_first.with_goals
   end
 
   def show
-    @project = Project.find_by(url: params[:id])
+    @project = Project.with_full_information.find_by(url: params[:id])
   end
 
   def new
@@ -25,10 +25,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-
-  def project_scope
-    Project
-  end
 
   def hackday
     @hackday = params[:hackday_id] &&

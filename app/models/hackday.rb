@@ -48,6 +48,14 @@ class Hackday < ApplicationRecord
       .order(start_date: :asc)
   end
 
+  def self.most_recent_first
+    order(start_date: :desc)
+  end
+
+  def self.with_goals
+    includes(:goals => [:project, { :commitments => :user }])
+  end
+
   private
 
   def dates_in_order

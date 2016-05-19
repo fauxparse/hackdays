@@ -32,14 +32,6 @@ form {
 }
 
 .project-info {
-  h3 {
-    color: $mid-grey;
-    font-weight: normal;
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin-bottom: $small-spacing;
-  }
-
   @include media($medium-screen) {
     .description {
       @include span-columns(8);
@@ -59,4 +51,20 @@ form {
 
 section.goal {
   border-top: $base-border;
+}
+
+.project-list {
+  &:not(:last-child) {
+    border-bottom: $base-border;
+  }
+
+  article {
+    h4 {
+      margin-bottom: 0;
+    }
+
+    &:not(:last-child) .users {
+      margin-bottom: $small-spacing;
+    }
+  }
 }
