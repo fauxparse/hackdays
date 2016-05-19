@@ -21,6 +21,16 @@ nav.top-navigation {
         color: white;
         background-color: $mid-grey;
       }
+
+      &:first-child {
+        padding-left: 3rem;
+        position: relative;
+
+        img {
+          @include position(absolute, .5rem null null .5rem);
+          @include size(2.5rem);
+        }
+      }
     }
   }
 }

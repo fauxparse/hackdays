@@ -1,4 +1,6 @@
 %nav.top-navigation
   .inner
-    = link_to "Powershop Hackdays", root_path
+    = link_to root_path do
+      = image_tag "winky.svg"
+      %span Powershop Hackdays
     = link_to current_user, "#"
