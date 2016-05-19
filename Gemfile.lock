@@ -98,6 +98,11 @@ GEM
     gherkin (3.2.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google_contacts_api (0.7.1)
+      activesupport
+      hashie
+      i18n
+      json
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -314,6 +319,7 @@ DEPENDENCIES
   erb2haml
   factory_girl_rails (~> 4.0)
   figaro
+  google_contacts_api
   guard
   guard-cucumber
   guard-rails

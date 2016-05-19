@@ -10,6 +10,7 @@ class UserFromOauth
                 user.name = oauth["info"]["name"]
                 user.email = oauth["info"]["email"]
                 user.image_url = oauth["info"]["image"]
+                user.token = oauth["credentials"]["token"]
                 user.save!
               end
   end

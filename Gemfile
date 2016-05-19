@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'figaro'
 
 gem 'omniauth-google-oauth2'
+gem 'google_contacts_api'
 
 gem 'haml-rails'
 gem 'bourbon', '>= 5.0.0.beta.5'
