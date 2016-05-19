@@ -1,0 +1,8 @@
+li.project {
+  padding: 1rem 0;
+  border-bottom: $base-border;
+
+  &:first-child {
+    border-top: $base-border;
+  }
+}

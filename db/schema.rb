@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518231144) do
+ActiveRecord::Schema.define(version: 20160519003417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20160518231144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["start_date", "end_date"], name: "index_hackdays_on_start_date_and_end_date", unique: true, using: :btree
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name",           limit: 128
+    t.string "url",            limit: 64
+    t.string "repository_url"
+    t.text   "description"
+    t.index ["url"], name: "index_projects_on_url", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

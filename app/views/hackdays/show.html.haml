@@ -1,0 +1,15 @@
+%section.hackday-header
+  .inner
+    %h1= hackday.name
+    .dates= dates(hackday)
+
+%section.other-projects
+  .inner
+    %h2
+      - if hackday.current?
+        Here’s what other people are working on:
+      - else
+        Here’s what we worked on:
+
+    %ul.projects
+      = render @projects

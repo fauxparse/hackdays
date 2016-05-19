@@ -39,6 +39,8 @@ gem 'bourbon', '>= 5.0.0.beta.5'
 gem 'neat'
 gem 'normalize-scss'
 
+gem 'stringex'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

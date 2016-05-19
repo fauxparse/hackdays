@@ -8,6 +8,14 @@ class Hackday < ApplicationRecord
     start_date.strftime("Hackdays %B %Y")
   end
 
+  def to_param
+    start_date.strftime("%Y-%m")
+  end
+
+  def current?
+    start_date <= Date.today && Date.today <= end_date
+  end
+
   def self.current
     where("start_date <= :today AND end_date >= :today", today: Date.today)
       .first

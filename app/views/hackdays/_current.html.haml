@@ -1,5 +1,8 @@
 - if hackday.present?
   %section.current-hackdays
     .inner
-      %h1= hackday.name
-      .dates= dates(hackday)
+      .info
+        %h1= hackday.name
+        .dates= dates(hackday)
+      = link_to hackday do
+        %i.material-icons chevron_right

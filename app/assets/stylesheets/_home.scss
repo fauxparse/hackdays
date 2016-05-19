@@ -2,6 +2,31 @@
   background: $bright-pink;
   color: white;
 
+  .inner {
+    display: flex;
+    align-items: center;
+
+    .info {
+      flex: 1;
+    }
+
+    > a {
+      flex: 0;
+      color: white;
+      opacity: .25;
+      transition: opacity $base-duration $base-timing;
+
+      i {
+        @include size(1em);
+        font-size: 10rem;
+      }
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+
   h1 {
     font-size: 3rem;
     margin: 0;
