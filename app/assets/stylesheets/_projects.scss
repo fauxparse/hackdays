@@ -6,3 +6,26 @@ li.project {
     border-top: $base-border;
   }
 }
+
+form {
+  section {
+    border-bottom: $base-border;
+
+    .field-hint {
+      color: $mid-grey;
+      font-size: .875rem;
+    }
+
+    @include media($medium-screen) {
+      .field {
+        @include span-columns(8);
+      }
+
+      .field-hint {
+        margin-top: 2rem;
+        @include span-columns(4);
+        @include omega(2n);
+      }
+    }
+  }
+}

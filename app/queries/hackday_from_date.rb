@@ -6,11 +6,12 @@ class HackdayFromDate
   end
 
   def hackday
-    @hackday ||= scope(@date).first!
+    @hackday ||= @date && scope(@date).first!
   end
 
 
   def self.from_param(id)
+    return new(nil) unless id.present?
     year, month = id.split("-").map(&:to_i)
     new(Date.new(year, month, 1))
   end

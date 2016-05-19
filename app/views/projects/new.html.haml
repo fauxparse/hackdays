@@ -1,0 +1,47 @@
+%header
+  .inner
+    %h1 New Hackdays project
+
+= form_for @project_form, url: new_project_form_path do |form|
+  %section
+    .inner
+      .field
+        = form.label :name
+        = form.text_field :name
+        = form.error_messages_for :name
+      %p.field-hint Something memorable!
+
+      .field
+        = form.label :description
+        = form.text_area :description, rows: 10
+        = form.error_messages_for :description
+      %p.field-hint What's exciting about this project? What technologies will you use? What will you deliver?
+
+      .field
+        = form.label :repository_url
+        = form.url_field :repository_url, rows: 10
+        = form.error_messages_for :repository_url
+      %p.field-hint Let others browse your code.
+
+  - if hackday.present?
+    %section
+      .inner
+        %h2 2-day goal
+
+        %div
+          = form.fields_for :goal, Goal.new do |fields|
+            .field
+              = fields.label :aim
+              = fields.text_area :aim, rows: 3
+              = form.error_messages_for :"goals.aim"
+            %p.field-hint What do you aim to deliver during this Hackdays?
+
+            .field
+              = fields.label :help_required
+              = fields.text_area :help_required, rows: 3
+              = form.error_messages_for :"goals.help_required"
+            %p.field-hint Are you looking for any help? Make your pitch here!
+
+  %section
+    .inner
+      = form.submit "Create project"

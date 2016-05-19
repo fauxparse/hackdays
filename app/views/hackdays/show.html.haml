@@ -1,7 +1,14 @@
-%section.hackday-header
+%header
   .inner
     %h1= hackday.name
     .dates= dates(hackday)
+
+- if hackday.current?
+  %section.no-project
+    .inner
+      %h2 What are you working on?
+      %p Browse the projects below or add your own.
+      = link_to "New project", new_hackday_project_path(hackday), class: "button"
 
 %section.other-projects
   .inner

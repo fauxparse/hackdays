@@ -1,4 +1,7 @@
 class Hackday < ApplicationRecord
+  has_many :goals
+  has_many :projects, through: :goals
+
   before_validation :fill_in_dates
 
   validates :start_date, :end_date, presence: true

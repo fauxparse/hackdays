@@ -2,12 +2,31 @@ body {
   margin: 0;
   padding: 0;
 
-  > section {
+  > header,
+  section {
     padding: 0 1rem;
 
     .inner {
       @include outer-container;
       padding: 1rem 0;
+    }
+  }
+
+  > header {
+    background: $bright-pink;
+    color: white;
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+
+      @include media($medium-screen) {
+        font-size: 3vw;
+      }
+    }
+
+    .dates {
+      font-size: 1.5rem;
     }
   }
 }

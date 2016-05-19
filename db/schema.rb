@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519003417) do
+ActiveRecord::Schema.define(version: 20160519012830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "goals", force: :cascade do |t|
+    t.integer  "hackday_id"
+    t.integer  "project_id"
+    t.text     "aim"
+    t.text     "help_required"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["hackday_id"], name: "index_goals_on_hackday_id", using: :btree
+    t.index ["project_id"], name: "index_goals_on_project_id", using: :btree
+  end
 
   create_table "hackdays", force: :cascade do |t|
     t.date     "start_date"
@@ -42,4 +53,6 @@ ActiveRecord::Schema.define(version: 20160519003417) do
     t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
 
+  add_foreign_key "goals", "hackdays"
+  add_foreign_key "goals", "projects"
 end

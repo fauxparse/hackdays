@@ -1,19 +1,4 @@
-.hackday-header {
-  background: $bright-pink;
-  color: white;
-
-  h1 {
-    font-size: 2rem;
-    margin: 0;
-
-    @include media($medium-screen) {
-      font-size: 3vw;
-    }
-  }
-
-  .dates {
-    font-size: 1.5rem;
-  }
+.no-project {
+  background-color: $light-yellow;
+  border-bottom: 1px solid $yellow;
 }
-
-
