@@ -20,7 +20,7 @@ body {
       font-size: 2rem;
       margin: 0;
 
-      @include media($medium-screen) {
+      @include media($large-screen) {
         font-size: 3vw;
       }
     }

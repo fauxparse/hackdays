@@ -28,7 +28,7 @@
     font-size: 3rem;
     margin: 0;
 
-    @include media($medium-screen) {
+    @include media($large-screen) {
       font-size: 5vw;
     }
   }
