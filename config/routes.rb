@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :projects
   end
 
-  resources :projects
+  resources :projects do
+    resources :goals
+  end
 
   resources :goals do
     resource :commitment, only: [:create, :destroy]

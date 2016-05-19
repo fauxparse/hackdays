@@ -43,6 +43,11 @@ class Hackday < ApplicationRecord
       .first
   end
 
+  def self.upcoming
+    where("end_date >= ?", Date.today)
+      .order(start_date: :asc)
+  end
+
   private
 
   def dates_in_order

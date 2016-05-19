@@ -8,6 +8,10 @@ class Project < ApplicationRecord
   validates :name, :description, presence: true
   validates :url, format: { with: /\A[a-z0-9\-]+\z/ }, if: :name?
 
+  def to_s
+    name
+  end
+
   def to_param
     url
   end

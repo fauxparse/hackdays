@@ -8,7 +8,7 @@
       = link_to "Sign me up!", goal_commitment_path(goal), method: :post, class: "button"
     = users(goal.users.to_a)
 
-  %p= goal.aim
+  = markdown goal.aim
   - if goal.help_required? && !working_on?(goal)
     %p.help
       %b Help required:
