@@ -1,6 +1,7 @@
 class Hackday < ApplicationRecord
   has_many :goals
   has_many :projects, through: :goals
+  has_many :commitments, through: :goals
 
   before_validation :fill_in_dates
 

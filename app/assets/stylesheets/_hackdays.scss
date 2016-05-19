@@ -2,3 +2,50 @@
   background-color: $light-yellow;
   border-bottom: 1px solid $yellow;
 }
+
+.commitments {
+  background-color: $light-grey;
+  border-bottom: 1px solid $mid-grey;
+
+  h3 {
+    color: $mid-grey;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1em;
+  }
+
+  .goals {
+    margin-bottom: 1rem;
+  }
+
+  .goal {
+    border: none;
+    margin: 0 0 1rem;
+    padding: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.goal {
+  h4 {
+    margin: 0;
+  }
+
+  .users {
+    color: $mid-grey;
+    font-size: .875rem;
+  }
+
+  p {
+    margin: 0 0 .25rem;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  .help {
+    color: $mid-grey;
+    font-size: .875rem;
+  }
+}

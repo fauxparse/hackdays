@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519012830) do
+ActiveRecord::Schema.define(version: 20160519030410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "commitments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id", "user_id"], name: "index_commitments_on_goal_id_and_user_id", unique: true, using: :btree
+    t.index ["goal_id"], name: "index_commitments_on_goal_id", using: :btree
+    t.index ["user_id"], name: "index_commitments_on_user_id", using: :btree
+  end
 
   create_table "goals", force: :cascade do |t|
     t.integer  "hackday_id"
@@ -53,6 +63,8 @@ ActiveRecord::Schema.define(version: 20160519012830) do
     t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
 
+  add_foreign_key "commitments", "goals"
+  add_foreign_key "commitments", "users"
   add_foreign_key "goals", "hackdays"
   add_foreign_key "goals", "projects"
 end

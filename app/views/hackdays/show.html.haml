@@ -2,13 +2,21 @@
   .inner
     %h1= hackday.name
     .dates= dates(hackday)
+    .effort= effort(hackday)
 
-- if hackday.current?
+- if @commitments.any?
+  %section.commitments
+    .inner
+      %h3= hackday.current? && "You are working on" || "You worked on"
+      %ul.goals
+        = render @commitments.map(&:goal)
+      = link_to "Add a project", new_hackday_project_path(hackday), class: "button"
+- elsif hackday.current?
   %section.no-project
     .inner
       %h2 What are you working on?
       %p Browse the projects below or add your own.
-      = link_to "New project", new_hackday_project_path(hackday), class: "button"
+      = link_to "Add a project", new_hackday_project_path(hackday), class: "button"
 
 %section.other-projects
   .inner
@@ -18,5 +26,5 @@
       - else
         Here’s what we worked on:
 
-    %ul.projects
-      = render @projects
+    %ul.goals
+      = render other_goals

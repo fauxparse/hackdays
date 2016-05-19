@@ -6,4 +6,12 @@ module ProjectsHelper
       projects_path
     end
   end
+
+  def working_on?(goal)
+    goal.users.include?(current_user)
+  end
+
+  def other_goals
+    @goals.reject { |goal| working_on?(goal) }
+  end
 end

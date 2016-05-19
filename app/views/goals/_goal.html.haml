@@ -1,0 +1,9 @@
+%li.goal
+  %h4
+    = link_to goal.project.name, goal.project
+  = users(goal.users.to_a)
+  %p= goal.aim
+  - if goal.help_required? && !working_on?(goal)
+    %p.help
+      %b Help required:
+      = goal.help_required
