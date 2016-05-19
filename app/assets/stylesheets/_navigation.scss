@@ -1,6 +1,8 @@
 nav.top-navigation {
   background: $dark-grey;
   padding: 0 1rem;
+  position: relative;
+  z-index: 100;
 
   .inner {
     margin: 0 auto;
@@ -8,29 +10,65 @@ nav.top-navigation {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  a {
+    display: block;
+    line-height: 1.5;
+    margin: 0 -1rem;
+    padding: 1rem;
+    color: $light-grey;
+    text-shadow: 0 1px 0 $dark-grey;
+    transition: all $base-duration $base-timing;
+
+    &:hover, &:focus {
+      color: white;
+      background-color: $mid-grey;
+      outline: none;
+    }
+
+    &.logo {
+      padding-left: 3rem;
+      position: relative;
+
+      img {
+        @include position(absolute, .5rem null null .5rem);
+        @include size(2.5rem);
+      }
+    }
+  }
+
+  .user-menu {
+    position: relative;
+    margin: 0 -1rem;
 
     a {
-      line-height: 1.5;
-      margin: 0 -1rem;
-      padding: 1rem;
-      color: $light-grey;
-      text-shadow: 0 1px 0 $dark-grey;
-      transition: all $base-duration $base-timing;
+      margin: 0;
+    }
 
-      &:hover {
-        color: white;
+    > a {
+      &:not(:hover):not(:focus) {
+        background-color: $dark-grey;
+      }
+
+      .open {
         background-color: $mid-grey;
       }
+    }
 
-      &:first-child {
-        padding-left: 3rem;
-        position: relative;
+    .popup {
+      position: absolute;
+      z-index: -1;
+      right: 0rem;
+      top: -7rem;
+      min-width: 100%;
+      white-space: nowrap;
+      background: $mid-grey;
+      transition: top $base-duration $base-timing;
+    }
 
-        img {
-          @include position(absolute, .5rem null null .5rem);
-          @include size(2.5rem);
-        }
-      }
+    > a.open ~ .popup {
+      top: 3.5rem;
     }
   }
 }

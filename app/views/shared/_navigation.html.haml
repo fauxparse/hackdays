@@ -1,6 +1,10 @@
 %nav.top-navigation
   .inner
-    = link_to root_path do
+    = link_to root_path, class: "logo" do
       = image_tag "winky.svg"
       %span Powershop Hackdays
-    = link_to current_user, "#"
+    .user-menu
+      = link_to current_user, current_user, rel: "popup"
+      %ul.popup
+        %li= link_to "My profile", current_user
+        %li= link_to "Log out", logout_path

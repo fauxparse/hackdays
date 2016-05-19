@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'commitments/index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy', as: :logout
 
   resources :hackdays do
     resources :projects
