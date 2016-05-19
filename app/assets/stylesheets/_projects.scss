@@ -51,6 +51,10 @@ form {
 
 section.goal {
   border-top: $base-border;
+
+  header + & {
+    border-top: none;
+  }
 }
 
 .project-list {

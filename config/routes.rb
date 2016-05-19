@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/show'
+
   get 'commitments/index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
@@ -15,6 +19,8 @@ Rails.application.routes.draw do
   resources :goals do
     resource :commitment, only: [:create, :destroy]
   end
+
+  resources :users, only: [:index, :show]
 
   root to: 'hackdays#index'
 end
