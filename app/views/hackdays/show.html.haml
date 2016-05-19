@@ -7,24 +7,20 @@
 - if @commitments.any?
   %section.commitments
     .inner
-      %h3= hackday.current? && "You are working on" || "You worked on"
+      %h3= tense(hackday, ".working")
       %ul.goals
         = render @commitments.map(&:goal)
       = link_to "Add a project", new_hackday_project_path(hackday), class: "button"
-- elsif hackday.current?
+- elsif !hackday.past?
   %section.no-project
     .inner
-      %h2 What are you working on?
-      %p Browse the projects below or add your own.
+      %h2= t(".no_commitment")
+      %p= t(".browse_or_add")
       = link_to "Add a project", new_hackday_project_path(hackday), class: "button"
 
 %section.other-projects
   .inner
-    %h2
-      - if hackday.current?
-        Here’s what other people are working on:
-      - else
-        Here’s what we worked on:
+    %h2= tense(hackday, ".goals")
 
     %ul.goals
       = render other_goals

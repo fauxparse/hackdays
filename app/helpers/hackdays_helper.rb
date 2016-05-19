@@ -4,7 +4,7 @@ module HackdaysHelper
     [
       users.size,
       "person".pluralize(users.size),
-      "working on",
+      hackday.past? ? "worked on" : "working on",
       hackday.goals.size,
       "goal".pluralize(hackday.goals.size)
     ].join(" ")
