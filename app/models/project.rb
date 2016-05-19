@@ -11,4 +11,8 @@ class Project < ApplicationRecord
   def to_param
     url
   end
+
+  def contributors
+    goals.flat_map(&:users).uniq
+  end
 end

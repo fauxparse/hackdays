@@ -14,4 +14,8 @@ module ProjectsHelper
   def other_goals
     @goals.reject { |goal| working_on?(goal) }
   end
+
+  def project_goals
+    @project.goals.sort { |g1, g2| g2.hackday <=> g1.hackday }
+  end
 end

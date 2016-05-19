@@ -1,0 +1,5 @@
+%section.goal
+  .inner
+    %h4= dates(goal.hackday, true)
+    .committed-users= users(goal.users.to_a)
+    = markdown goal.aim

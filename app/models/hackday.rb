@@ -28,6 +28,10 @@ class Hackday < ApplicationRecord
     start_date > Date.today
   end
 
+  def <=>(another)
+    start_date <=> another.start_date
+  end
+
   def self.current
     where("start_date <= :today AND end_date >= :today", today: Date.today)
       .first

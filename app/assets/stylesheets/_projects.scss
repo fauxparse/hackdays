@@ -30,3 +30,33 @@ form {
     }
   }
 }
+
+.project-info {
+  h3 {
+    color: $mid-grey;
+    font-weight: normal;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: $small-spacing;
+  }
+
+  @include media($medium-screen) {
+    .description {
+      @include span-columns(8);
+    }
+
+    .contributors {
+      @include span-columns(4);
+      border-left: $base-border;
+      padding-left: 1rem;
+
+      ul {
+        margin-bottom: $base-spacing;
+      }
+    }
+  }
+}
+
+section.goal {
+  border-top: $base-border;
+}

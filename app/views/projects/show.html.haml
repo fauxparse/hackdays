@@ -2,3 +2,17 @@
   .inner
     %h1= @project.name
 
+%section.project-info
+  .inner
+    .description
+      %h3 Project description
+      = markdown(@project.description || "")
+    .contributors
+      %h3 Contributors
+      %ul
+        = render @project.contributors
+      - if @project.repository_url
+        %h3 Source code
+        %p= link_to "View source code", @project.repository_url, target: :_blank
+
+= render partial: "goal", collection: project_goals
