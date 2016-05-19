@@ -1,0 +1,10 @@
+%header
+  .inner
+    %h1 Edit project details
+
+= form_for @project_form, url: project_path(@project_form.project) do |form|
+  = render partial: "form", object: form
+
+  %section.buttons
+    .inner
+      = form.submit "Save changes"

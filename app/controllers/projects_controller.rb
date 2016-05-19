@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.with_full_information.find_by(url: params[:id])
+    project
   end
 
   def new
@@ -24,10 +24,28 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project_form = ProjectForm.new(project, nil)
+  end
+
+  def update
+    @project_form = ProjectForm.new(project, nil, params)
+
+    if @project_form.save
+      redirect_to @project_form.project
+    else
+      render :edit
+    end
+  end
+
   private
 
   def hackday
     @hackday = params[:hackday_id] &&
       HackdayFromDate.from_param(params[:hackday_id]).hackday
+  end
+
+  def project
+    @project ||= Project.with_full_information.find_by(url: params[:id])
   end
 end

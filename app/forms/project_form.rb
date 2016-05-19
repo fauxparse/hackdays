@@ -1,7 +1,7 @@
 class ProjectForm
   attr_reader :project, :goal
 
-  def initialize(project, hackday, params = nil)
+  def initialize(project, hackday = nil, params = nil)
     @project = project || Project.new
     @hackday = hackday
     @params = params
