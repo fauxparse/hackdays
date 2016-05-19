@@ -1,0 +1,12 @@
+%header
+  .inner
+    %h1 Edit goal
+    %h2= "#{@goal.project.name}, #{dates(@goal.hackday)}"
+
+= form_for @goal do |form|
+  = render partial: "form", object: form
+
+  %section.buttons
+    .inner
+      = form.submit "Save changes"
+

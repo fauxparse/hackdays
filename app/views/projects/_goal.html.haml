@@ -3,3 +3,6 @@
     %h4= dates(goal.hackday, true)
     .committed-users= users(goal.users.to_a)
     = markdown goal.aim
+
+    - unless goal.hackday.past?
+      = link_to "Edit", edit_goal_path(goal), class: "button"

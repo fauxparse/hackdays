@@ -15,6 +15,18 @@ class GoalsController < ApplicationController
     end
   end
 
+  def edit
+    goal
+  end
+
+  def update
+    if goal.update(goal_params)
+      redirect_to goal.project
+    else
+      render :edit
+    end
+  end
+
   private
 
   def project
@@ -23,5 +35,9 @@ class GoalsController < ApplicationController
 
   def goal_params
     params.require(:goal).permit(:aim, :help_required)
+  end
+
+  def goal
+    @goal ||= Goal.includes(:project).find(params[:id])
   end
 end

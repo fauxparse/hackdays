@@ -1,0 +1,13 @@
+%section
+  .inner
+    .field
+      = form.label :aim
+      = form.text_area :aim, rows: 3
+      = form.error_messages_for :aim
+    %p.field-hint What do you aim to deliver during this Hackdays?
+
+    .field
+      = form.label :help_required
+      = form.text_area :help_required, rows: 3
+      = form.error_messages_for :help_required
+    %p.field-hint Are you looking for any help? Make your pitch here!
