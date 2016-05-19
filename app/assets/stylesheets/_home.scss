@@ -1,0 +1,40 @@
+.current-hackdays {
+  background: $bright-pink;
+  color: white;
+
+  h1 {
+    font-size: 3rem;
+    margin: 0;
+
+    @include media($medium-screen) {
+      font-size: 5vw;
+    }
+  }
+
+  .dates {
+    font-size: 2rem;
+  }
+}
+
+.what-is-hackdays {
+  p:first-child {
+    font-weight: bold;
+  }
+}
+
+.next-hackdays {
+  border-top: $base-border;
+  border-bottom: $base-border;
+
+  h2 {
+    font-weight: normal;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: $mid-grey;
+    margin: 0;
+  }
+
+  .dates {
+    font-size: 2rem;
+  }
+}

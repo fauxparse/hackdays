@@ -1,0 +1,26 @@
+nav.top-navigation {
+  background: $dark-grey;
+  padding: 0 1rem;
+
+  .inner {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+      line-height: 1.5;
+      margin: 0 -1rem;
+      padding: 1rem;
+      color: $light-grey;
+      text-shadow: 0 1px 0 $dark-grey;
+      transition: all $base-duration $base-timing;
+
+      &:hover {
+        color: white;
+        background-color: $mid-grey;
+      }
+    }
+  }
+}

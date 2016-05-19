@@ -1,2 +1,17 @@
-%h1 Hackdays#index
-%p Find me in app/views/hackdays/index.html.haml
+= render "current", hackday: Hackday.current
+
+%section.what-is-hackdays
+  .inner
+    %p
+      Powershop Hackdays
+      is a chance to work on projects outside of what we do every day,
+      in order to learn new skills, embrace new ideas and new ways of working,
+      and form new relationships with fellow developers.
+    %p
+      Pitch your ideas on Thursday morning, form teams, and spend two days
+      working on your projects. Then we come together on Friday afternoon
+      to present our progress, share what we've learned, and find out
+      who will take home the coveted Golden Sausage Roll.
+
+= render "next", hackday: Hackday.next
+
