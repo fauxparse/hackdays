@@ -6,10 +6,11 @@ class UserFromOauth
   end
 
   def user
-    @user ||= User.find_or_initialize_by(uid: oauth["uid"]).tap do |user|
+    email = oauth["info"]["email"]
+    @user ||= User.find_or_initialize_by(email: email).tap do |user|
                 user.name = oauth["info"]["name"]
-                user.email = oauth["info"]["email"]
                 user.image_url = oauth["info"]["image"]
+                user.uid = oauth["uid"]
                 user.token = oauth["credentials"]["token"]
                 user.save!
               end

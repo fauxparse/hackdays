@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  validates :name, :uid, :email, presence: true
-  validates :uid, uniqueness: true
+  validates :name, :email, presence: true
+  validates :email, uniqueness: true
+  validates :uid, uniqueness: true, if: :uid?
 
   def to_s
     name
