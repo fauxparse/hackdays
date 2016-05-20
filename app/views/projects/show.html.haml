@@ -6,7 +6,10 @@
   .inner
     .description
       %h3 Project description
-      = markdown(@project.description || "")
+      - if @project.description.present?
+        = markdown @project.description
+      - else
+        %p No description yet. If this is your project, why not brag about it a bit?
       %p
         = link_to "Edit this project", edit_project_path(@project), class: "button"
         = link_to "Add a goal", new_project_goal_path(@project), class: "button"
