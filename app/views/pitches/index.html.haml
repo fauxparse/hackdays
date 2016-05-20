@@ -13,7 +13,7 @@
         .field
           = form.label :name do
             %span Project
-            = form.select :id, [[nil, nil]] + project_ids_for_select, {}, { "data-placeholder": "Select existing project" }
+            = form.select :id, [[nil, nil]] + project_ids_for_select, {}, { "data-placeholder": "Select existing project", tabindex: -1 }
           = form.text_field :name
         = form.fields_for :goal do |fields|
           .field

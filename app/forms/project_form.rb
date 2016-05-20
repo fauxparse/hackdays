@@ -37,7 +37,10 @@ class ProjectForm
   def apply_params
     project.attributes = filtered_params.except(:id, :goal, :user_ids) \
       unless filtered_params[:id].present?
-    @goal = project.goals.build(goal_params) if @hackday.present?
+    if @hackday.present?
+      @goal = project.goals.build(goal_params)
+      @goal.aim = project.name if @goal.aim.blank?
+    end
     self.user_ids = filtered_params[:user_ids]
   end
 
