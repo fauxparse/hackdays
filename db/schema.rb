@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519222355) do
+ActiveRecord::Schema.define(version: 20160519234835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20160519222355) do
     t.integer  "project_id"
     t.text     "aim"
     t.text     "help_required"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "likes_count",   default: 0
     t.index ["hackday_id"], name: "index_goals_on_hackday_id", using: :btree
     t.index ["project_id"], name: "index_goals_on_project_id", using: :btree
   end
@@ -43,6 +44,16 @@ ActiveRecord::Schema.define(version: 20160519222355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["start_date", "end_date"], name: "index_hackdays_on_start_date_and_end_date", unique: true, using: :btree
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "goal_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id", "user_id"], name: "index_likes_on_goal_id_and_user_id", unique: true, using: :btree
+    t.index ["goal_id"], name: "index_likes_on_goal_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|
@@ -70,4 +81,6 @@ ActiveRecord::Schema.define(version: 20160519222355) do
   add_foreign_key "commitments", "users"
   add_foreign_key "goals", "hackdays"
   add_foreign_key "goals", "projects"
+  add_foreign_key "likes", "goals"
+  add_foreign_key "likes", "users"
 end

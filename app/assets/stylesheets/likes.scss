@@ -1,0 +1,31 @@
+.likes {
+  display: inline-flex;
+  align-items: center;
+  font-size: .875rem;
+  cursor: pointer;
+
+  i {
+    color: rgba($bright-pink, .25);
+    position: relative;
+
+    &::before {
+      content: "favorite";
+      color: $bright-pink;
+      @include position(absolute, 0rem null null 0rem);
+      transform: scale(0);
+      transition: transform $base-duration $ease-in-back;
+    }
+  }
+
+  &[data-liked] i {
+    &::before {
+      transform: scale(1);
+      transition-timing-function: $ease-out-back;
+    }
+  }
+
+  span {
+    margin-left: .5rem;
+    color: $mid-grey;
+  }
+}

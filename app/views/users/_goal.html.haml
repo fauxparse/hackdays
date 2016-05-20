@@ -4,4 +4,4 @@
     %h4= link_to goal.project, goal.project
     .committed-users= users(goal.users.to_a)
     = markdown goal.aim
-
+    = render "goals/likes", goal: goal

@@ -1,0 +1,10 @@
+.likes{"data-liked": liked?(goal), "data-url": goal_like_path(goal)}
+  %i.material-icons favorite_border
+  %span
+    - if goal.likes_count.zero?
+      Be the first to like this
+    - else
+      = goal.likes_count
+      = "person".pluralize(goal.likes_count)
+      = goal.likes_count > 1 ? "like" : "likes"
+      = "this"
