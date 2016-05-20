@@ -18,9 +18,10 @@
       %p= t(".browse_or_add")
       = link_to "Add a project", new_hackday_project_path(hackday), class: "button"
 
-%section.other-projects
-  .inner
-    %h2= tense(hackday, ".goals")
+- if other_goals.any?
+  %section.other-projects
+    .inner
+      %h2= tense(hackday, ".goals")
 
-    %ul.goals
-      = render other_goals
+      %ul.goals
+        = render other_goals

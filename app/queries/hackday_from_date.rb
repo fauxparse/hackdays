@@ -19,6 +19,8 @@ class HackdayFromDate
   private
 
   def scope(date)
-    Hackday.where("start_date >= ? AND start_date < ?", date, date + 1.month)
+    Hackday
+      .includes(:goals => [:hackday, :users, :likes])
+      .where("start_date >= ? AND start_date < ?", date, date + 1.month)
   end
 end

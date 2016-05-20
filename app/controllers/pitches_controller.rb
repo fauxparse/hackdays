@@ -2,7 +2,7 @@ class PitchesController < ApplicationController
   helper_method :hackday, :commitments
 
   def index
-    @goals = HackdayGoals.new(hackday).goals.order(created_at: :desc)
+    @goals = hackday.goals.order(created_at: :desc)
     @project_form = ProjectForm.new(Project.new, hackday)
   end
 
