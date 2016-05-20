@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   acts_as_url :name, limit: 64
 
+  has_many :commitments, dependent: :destroy
+
   validates :name, :email, presence: true
   validates :email, uniqueness: true
   validates :uid, uniqueness: true, if: :uid?
