@@ -5,7 +5,7 @@ class Project < ApplicationRecord
 
   has_many :goals, inverse_of: :project, autosave: true, dependent: :destroy
 
-  validates :name, :description, presence: true
+  validates :name, presence: true
   validates :url, format: { with: /\A[a-z0-9\-]+\z/ }, if: :name?
 
   def to_s
