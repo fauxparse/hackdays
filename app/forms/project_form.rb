@@ -20,11 +20,24 @@ class ProjectForm
     project.valid? && (goal.blank? || goal.valid?)
   end
 
+  def user_ids
+    @project.goals.flat_map(&:commitments).flat_map(&:user_id).uniq
+  end
+
+  def user_ids=(ids)
+    return unless ids.present?
+
+    ids.reject(&:blank?).each do |id|
+      @goal.commitments.build(user_id: id)
+    end
+  end
+
   protected
 
   def apply_params
-    project.attributes = filtered_params.except(:goal)
+    project.attributes = filtered_params.except(:goal, :user_ids)
     @goal = project.goals.build(goal_params) if @hackday.present?
+    self.user_ids = filtered_params[:user_ids]
   end
 
   def filtered_params
@@ -34,6 +47,7 @@ class ProjectForm
         :url,
         :description,
         :repository_url,
+        :user_ids => [],
         :goal => [:aim, :help_required]
       )
   end

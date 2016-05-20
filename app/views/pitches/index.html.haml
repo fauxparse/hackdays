@@ -1,0 +1,27 @@
+%header
+  .inner
+    %h1 Hackdays pitches
+    %h2= dates(hackday)
+
+%section.new-pitch
+  .inner
+    = form_for @project_form, url: hackday_pitches_path(hackday), method: :post, html: { class: "pitching-form" } do |form|
+      .field
+        = form.label :user_ids, "Team"
+        = form.select :user_ids, user_ids_for_select, {}, { multiple: true }
+      .field
+        = form.label :name, "Project name"
+        = form.text_field :name
+      = form.fields_for :goal do |fields|
+        .field
+          = fields.label :aim, "Goal"
+          = fields.text_field :aim
+
+      = form.submit "Add pitch"
+
+%section.other-projects
+  .inner
+    %h2 Pitches
+
+    %ul.goals
+      = render @goals

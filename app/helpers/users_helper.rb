@@ -7,4 +7,8 @@ module UsersHelper
     end
     content_tag :span, content, class: "users"
   end
+
+  def user_ids_for_select
+    User.order(name: :asc).pluck(:name, :id)
+  end
 end

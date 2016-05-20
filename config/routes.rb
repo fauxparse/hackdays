@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :hackdays do
     resources :projects
+    resources :pitches, only: [:index, :create, :destroy]
   end
 
   resources :projects do
