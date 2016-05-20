@@ -9,7 +9,7 @@ class ProjectForm
     apply_params if params.present?
   end
 
-  delegate :name, :url, :description, :repository_url, to: :project
+  delegate :id, :name, :url, :description, :repository_url, to: :project
   delegate :model_name, :to_key, :to_model, :errors, to: :project
 
   def save
@@ -35,7 +35,8 @@ class ProjectForm
   protected
 
   def apply_params
-    project.attributes = filtered_params.except(:goal, :user_ids)
+    project.attributes = filtered_params.except(:id, :goal, :user_ids) \
+      unless filtered_params[:id].present?
     @goal = project.goals.build(goal_params) if @hackday.present?
     self.user_ids = filtered_params[:user_ids]
   end
@@ -43,6 +44,7 @@ class ProjectForm
   def filtered_params
     @filtered_params ||= @params.require(:project)
       .permit(
+        :id,
         :name,
         :url,
         :description,

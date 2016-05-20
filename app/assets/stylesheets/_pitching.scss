@@ -1,4 +1,30 @@
 .new-pitch {
   background: $light-yellow;
   border-bottom: 1px solid $yellow;
+
+  @include media($large-screen) {
+    .fields {
+      @include outer-container;
+      .field {
+        @include span-columns(4);
+        @include omega(3n);
+      }
+    }
+  }
+
+  label[for="project_name"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .chosen-container-single {
+      font-weight: normal;
+
+      .chosen-single {
+        background: $light-grey;
+        border-color: $light-grey;
+        box-shadow: none;
+      }
+    }
+  }
 }

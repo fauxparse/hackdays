@@ -7,7 +7,7 @@ class PitchesController < ApplicationController
   end
 
   def create
-    @project_form = ProjectForm.new(Project.new, hackday, params)
+    @project_form = ProjectForm.new(project, hackday, params)
     @project_form.goal.aim ||= @project_form.project.name
     if @project_form.save
       render partial: "goals/goal", object: @project_form.goal
@@ -21,5 +21,13 @@ class PitchesController < ApplicationController
 
   def hackday
     @hackday ||= HackdayFromDate.from_param(params[:hackday_id]).hackday
+  end
+
+  def project
+    @project = if params[:project][:id].present?
+      Project.find(params[:project][:id])
+    else
+      Project.new
+    end
   end
 end

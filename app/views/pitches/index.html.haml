@@ -6,16 +6,19 @@
 %section.new-pitch
   .inner
     = form_for @project_form, url: hackday_pitches_path(hackday), method: :post, html: { class: "pitching-form" } do |form|
-      .field
-        = form.label :user_ids, "Team"
-        = form.select :user_ids, user_ids_for_select, {}, { multiple: true }
-      .field
-        = form.label :name, "Project name"
-        = form.text_field :name
-      = form.fields_for :goal do |fields|
+      .fields
         .field
-          = fields.label :aim, "Goal"
-          = fields.text_field :aim
+          = form.label :user_ids, "Team"
+          = form.select :user_ids, user_ids_for_select, {}, { multiple: true, "data-placeholder": "Team members" }
+        .field
+          = form.label :name do
+            %span Project
+            = form.select :id, [[nil, nil]] + project_ids_for_select, {}, { "data-placeholder": "Select existing project" }
+          = form.text_field :name
+        = form.fields_for :goal do |fields|
+          .field
+            = fields.label :aim, "Goal"
+            = fields.text_field :aim
 
       = form.submit "Add pitch"
 

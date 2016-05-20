@@ -18,4 +18,8 @@ module ProjectsHelper
   def project_goals
     @project.goals.sort { |g1, g2| g2.hackday <=> g1.hackday }
   end
+
+  def project_ids_for_select
+    Project.order(name: :asc).pluck(:name, :id)
+  end
 end

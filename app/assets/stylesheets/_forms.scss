@@ -9,19 +9,19 @@ section.buttons {
   border-bottom: none;
 }
 
-.chosen-container .chosen-choices {
-  border: none;
-  box-shadow: none;
-  background: none;
-  padding: 0 2px;
-
-  li.search-choice {
-    background: $light-grey;
-    border-color: $light-grey;
-    box-shadow: none;
-  }
-}
-
-.chosen-container {
+.chosen-container-multi {
   padding: 5px;
+
+  .chosen-choices {
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0 2px;
+
+    li.search-choice {
+      background: $light-grey;
+      border-color: $light-grey;
+      box-shadow: none;
+    }
+  }
 }
