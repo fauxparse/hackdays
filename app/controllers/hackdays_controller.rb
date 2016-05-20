@@ -5,7 +5,6 @@ class HackdaysController < ApplicationController
   end
 
   def show
-    @projects = Project.all
     @commitments = CommitmentsForUser.new(current_user, hackday).commitments
     @goals = HackdayGoals.new(hackday).goals
   end

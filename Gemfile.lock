@@ -44,6 +44,9 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.2)
+    bullet (5.0.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     byebug (9.0.3)
     capybara (2.7.0)
       addressable
@@ -299,6 +302,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.9.0)
     web-console (3.1.1)
       activemodel (>= 4.2)
       debug_inspector
@@ -314,6 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon (>= 5.0.0.beta.5)
+  bullet
   byebug
   coffee-rails (~> 4.1.0)
   cucumber-rails

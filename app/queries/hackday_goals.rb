@@ -4,6 +4,6 @@ class HackdayGoals
   end
 
   def goals
-    @hackday.goals.includes(:likes, :commitments => :user)
+    @hackday.goals.includes(:project, :users, :likes)
   end
 end
